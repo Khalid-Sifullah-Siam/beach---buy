@@ -51,7 +51,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="w-full bg-base-100 relative z-50">
+    <div className="w-full bg-base-100 relative ">
       <div className="navbar md:max-w-10/12 mx-auto shadow-sm px-4 md:px-0">
         {/* Left side - Logo and Hamburger */}
         <div className="navbar-start gap-2">

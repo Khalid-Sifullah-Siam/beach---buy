@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <nav className="w-full">
+        <nav className=" sticky top-0 z-50">
           <Header />
         </nav>
         <main>{children}</main>

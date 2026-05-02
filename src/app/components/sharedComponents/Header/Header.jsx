@@ -2,6 +2,7 @@
 import { signOut, useSession } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Loader from "../Loader/Loader";
 
@@ -11,6 +12,7 @@ const Header = () => {
   const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
   const profileRef = useRef(null);
+  const pathname = usePathname(); // Get current route
 
   const user = data?.user;
 
@@ -55,8 +57,16 @@ const Header = () => {
 
   // Add My Profile only if user is logged in
   if (user) {
-    navItems.push({ id: 3, name: "My Profile", href: "/my-profile" });
+    navItems.push({ id: 5, name: "My Profile", href: "/my-profile" });
   }
+
+  // Function to check if link is active
+  const isActive = (href) => {
+    if (href === "/") {
+      return pathname === href;
+    }
+    return pathname.startsWith(href);
+  };
 
   return (
     <div className="w-full bg-base-100 relative">
@@ -99,7 +109,11 @@ const Header = () => {
             {navItems.map((nav) => (
               <li key={nav.id}>
                 <Link
-                  className="font-semibold hover:text-amber-600 transition-colors"
+                  className={`font-semibold transition-colors ${
+                    isActive(nav.href)
+                      ? "text-amber-600 border-b-2 border-amber-600"
+                      : "hover:text-amber-600"
+                  }`}
                   href={nav.href}
                 >
                   {nav.name}
@@ -165,7 +179,9 @@ const Header = () => {
                     <Link
                       href="/my-profile"
                       onClick={() => setIsProfileDropdownOpen(false)}
-                      className="w-full text-left px-4 py-2 text-sm hover:bg-base-200 transition-colors block"
+                      className={`w-full text-left px-4 py-2 text-sm hover:bg-base-200 transition-colors block ${
+                        isActive("/my-profile") ? "text-amber-600 font-semibold" : ""
+                      }`}
                     >
                       My Profile
                     </Link>
@@ -261,14 +277,18 @@ const Header = () => {
             </div>
           )}
 
-          {/* Navigation Links */}
+          {/* Navigation Links with Active Highlight */}
           <div className="py-2">
             {navItems.map((nav) => (
               <Link
                 key={nav.id}
                 href={nav.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-base font-medium hover:bg-base-200 hover:text-amber-600 transition-colors"
+                className={`block px-4 py-3 text-base font-medium transition-colors ${
+                  isActive(nav.href)
+                    ? "bg-amber-50 text-amber-600 border-l-4 border-amber-600"
+                    : "hover:bg-base-200 hover:text-amber-600"
+                }`}
               >
                 {nav.name}
               </Link>
@@ -299,14 +319,20 @@ const Header = () => {
               <Link
                 href={"/auth/login"}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="btn btn-ghost justify-start"
+                className={`btn btn-ghost justify-start ${
+                  isActive("/auth/login") ? "text-amber-600 font-semibold" : ""
+                }`}
               >
                 Login
               </Link>
               <Link
                 href={"/auth/register"}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="btn btn-primary bg-amber-600 hover:bg-amber-700 border-none justify-start"
+                className={`btn btn-primary justify-start ${
+                  isActive("/auth/register")
+                    ? "bg-amber-700"
+                    : "bg-amber-600 hover:bg-amber-700"
+                } border-none`}
               >
                 Register
               </Link>

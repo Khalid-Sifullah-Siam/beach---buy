@@ -95,7 +95,7 @@ const PopularProducts = () => {
 
                 <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <Link
-                    href={`/product/${product.id}`}
+                    href={`/products/detail/${product.id}`}
                     className="bg-white text-gray-900 px-4 py-2 rounded-full text-sm font-semibold hover:bg-amber-500 hover:text-white transition-transform transform -translate-y-2 group-hover:translate-y-0 duration-300"
                   >
                     Quick View
@@ -132,7 +132,7 @@ const PopularProducts = () => {
                 </div>
 
                 <Link
-                  href={`/product/${product.id}`}
+                  href={`/products/detail/${product.id}`}
                   className="w-full flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold py-2.5 px-4 rounded-xl transition-all duration-300 transform hover:scale-105"
                 >
                   <span>View Details</span>

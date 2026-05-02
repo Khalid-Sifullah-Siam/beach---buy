@@ -7,7 +7,7 @@ export const products = [
     rating: 4.7,
     stock: 10,
     description: "Stylish UV protection sunglasses perfect for summer outings.",
-    image: "https://i.postimg.cc/50kRW3sm/The-Benefits-of-UV-Protection-in-Sunglasses-Urban-Optics-May-24-Image.png",
+    image: "https://i.postimg.cc/x8bCQ634/The-Benefits-of-UV-Protection-in-Sunglasses-Urban-Optics-May-24-Image-(1).png",
     category: "Accessories",
   },
   {

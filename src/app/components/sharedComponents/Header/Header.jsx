@@ -49,6 +49,8 @@ const Header = () => {
   const navItems = [
     { id: 1, name: "Home", href: "/" },
     { id: 2, name: "Products", href: "/products" },
+    { id: 3, name: "About", href: "/about" },
+    { id: 4, name: "Contact", href: "/contact" },
   ];
 
   // Add My Profile only if user is logged in
@@ -119,9 +121,9 @@ const Header = () => {
                 {/* Profile Picture - Check for user image first */}
                 <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-semibold overflow-hidden">
                   {user?.image ? (
-                    <Image 
-                      src={user.image} 
-                      alt={user.name} 
+                    <Image
+                      src={user.image}
+                      alt={user.name}
                       width={100}
                       height={100}
                       className="w-full h-full object-cover"
@@ -241,9 +243,9 @@ const Header = () => {
             <div className="px-4 py-3 bg-base-200/50 flex items-center gap-3">
               <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-white font-semibold overflow-hidden">
                 {user?.image ? (
-                  <Image 
-                    src={user.image} 
-                    alt={user.name} 
+                  <Image
+                    src={user.image}
+                    alt={user.name}
                     width={100}
                     height={100}
                     className="w-full h-full object-cover"

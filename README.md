@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Beach & Buy - Summer eCommerce Platform
 
-## Getting Started
+A modern summer eCommerce platform where users can explore and purchase seasonal products like sunglasses, summer outfits, skincare, beach accessories, and more. Users can browse products, view details, and place orders after authentication.
 
-First, run the development server:
+## Purpose
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Beach & Buy** is a full-stack eCommerce web application built for summer shopping enthusiasts. The platform provides a seamless experience for users to discover trendy summer products, manage their profiles, and securely authenticate using email/password or Google OAuth. The project demonstrates modern web development practices with Next.js, authentication, database integration, and responsive UI design.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live URL
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+[Coming Soon](#) - Deploy using Vercel or Netlify
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Key Features
 
-## Learn More
+### Product Management
 
-To learn more about Next.js, take a look at the following resources:
+- Browse all summer products with responsive grid layout
+- View detailed product information including images, pricing, ratings, and stock status
+- Related products suggestions based on categories
+- Product categories: Accessories, Electronics, Clothing, Footwear
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Authentication System
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Email/Password registration and login with validation
+- Google OAuth integration for social login
+- Protected routes for authenticated users only
+- Session management with Better Auth
+- Profile update functionality (name & profile picture)
 
-## Deploy on Vercel
+### User Profile
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- View personal information (name, email, profile photo)
+- Update profile information with real-time preview
+- Secure session management
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Modern UI/UX
+
+- Responsive design (mobile, tablet, desktop)
+- Slide-up mobile menu with smooth animations
+- Toast notifications for success/error messages
+- Lottie animations on auth pages
+- DaisyUI components with Tailwind CSS
+- Hero section with auto-sliding carousel
+- Popular products showcase
+- Summer care tips section
+- Top brands display
+
+### Shopping Experience
+
+- Product listing with sorting options
+- Quantity selector on product details
+- Add to cart functionality with toast feedback
+- Related products recommendations
+
+### Information Pages
+
+- Privacy Policy
+- Terms of Service
+- Returns Policy
+
+## NPM Packages Used
+
+### Core Framework
+
+| Package   | Version | Purpose                        |
+| --------- | ------- | ------------------------------ |
+| next      | latest  | React framework for production |
+| react     | latest  | UI library                     |
+| react-dom | latest  | DOM rendering                  |
+
+### Authentication
+
+| Package                    | Version | Purpose                         |
+| -------------------------- | ------- | ------------------------------- |
+| better-auth                | latest  | Authentication library          |
+| @better-auth/mongo-adapter | latest  | MongoDB adapter for Better Auth |
+| mongodb                    | latest  | MongoDB driver                  |
+
+### UI & Styling
+
+| Package        | Version | Purpose                        |
+| -------------- | ------- | ------------------------------ |
+| daisyui        | latest  | Tailwind CSS component library |
+| tailwindcss    | latest  | Utility-first CSS framework    |
+| lottie-react   | latest  | Lottie animation support       |
+| @herooui/react | latest  | HeroUI components              |
+
+### Database
+
+| Package | Version | Purpose               |
+| ------- | ------- | --------------------- |
+| mongodb | latest  | NoSQL database driver |

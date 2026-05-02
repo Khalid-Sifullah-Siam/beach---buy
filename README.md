@@ -10,7 +10,7 @@ A modern summer eCommerce platform where users can explore and purchase seasonal
 
 ## Live URL
 
-[Coming Soon](#) - Deploy using Vercel or Netlify
+[Beach & Buy](https://beach-buy.vercel.app/)
 
 ## Key Features
 

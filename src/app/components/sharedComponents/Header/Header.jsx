@@ -1,5 +1,6 @@
 "use client";
 import { signOut, useSession } from "@/lib/auth-client";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import Loader from "../Loader/Loader";
@@ -44,14 +45,19 @@ const Header = () => {
     return <Loader />;
   }
 
+  // Nav items - only show My Profile if user is logged in
   const navItems = [
     { id: 1, name: "Home", href: "/" },
     { id: 2, name: "Products", href: "/products" },
-    { id: 3, name: "My Profile", href: "/my-profile" },
   ];
 
+  // Add My Profile only if user is logged in
+  if (user) {
+    navItems.push({ id: 3, name: "My Profile", href: "/my-profile" });
+  }
+
   return (
-    <div className="w-full bg-base-100 relative ">
+    <div className="w-full bg-base-100 relative">
       <div className="navbar md:max-w-10/12 mx-auto shadow-sm px-4 md:px-0">
         {/* Left side - Logo and Hamburger */}
         <div className="navbar-start gap-2">
@@ -110,9 +116,19 @@ const Header = () => {
                 className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                 aria-label="Profile menu"
               >
-                {/* Profile Picture Placeholder */}
-                <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-semibold">
-                  {user?.name?.charAt(0).toUpperCase() || "U"}
+                {/* Profile Picture - Check for user image first */}
+                <div className="w-8 h-8 rounded-full bg-amber-500 flex items-center justify-center text-white font-semibold overflow-hidden">
+                  {user?.image ? (
+                    <Image 
+                      src={user.image} 
+                      alt={user.name} 
+                      width={100}
+                      height={100}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    user?.name?.charAt(0).toUpperCase() || "U"
+                  )}
                 </div>
                 <span className="hidden md:inline font-medium text-sm">
                   {user?.name?.split(" ")[0]}
@@ -144,6 +160,13 @@ const Header = () => {
                     </p>
                   </div>
                   <div className="py-2">
+                    <Link
+                      href="/my-profile"
+                      onClick={() => setIsProfileDropdownOpen(false)}
+                      className="w-full text-left px-4 py-2 text-sm hover:bg-base-200 transition-colors block"
+                    >
+                      My Profile
+                    </Link>
                     <button
                       onClick={() => signOut()}
                       className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-base-200 transition-colors"
@@ -216,8 +239,18 @@ const Header = () => {
           {/* User Info in Mobile Menu (if logged in) */}
           {user && (
             <div className="px-4 py-3 bg-base-200/50 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-white font-semibold">
-                {user?.name?.charAt(0).toUpperCase() || "U"}
+              <div className="w-10 h-10 rounded-full bg-amber-500 flex items-center justify-center text-white font-semibold overflow-hidden">
+                {user?.image ? (
+                  <Image 
+                    src={user.image} 
+                    alt={user.name} 
+                    width={100}
+                    height={100}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  user?.name?.charAt(0).toUpperCase() || "U"
+                )}
               </div>
               <div>
                 <p className="font-semibold">{user?.name}</p>
